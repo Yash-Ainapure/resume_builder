@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-
+import ResDataDisplay from './ResDataDisplay';
+import { resumeData } from './resumeData';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">Resume Builder</div>
+      {
+        resumeData.map(res => <ResDataDisplay
+          name={res.name ? res.name : "not mentioned"}
+          experience={res.experience ? res.experience : "not mentioned"}
+          education={res.education ? res.education : "not mentioned"}
+          skills={res.skills ? res.skills : "not mentioned"}>
+        </ResDataDisplay>)
+      }
+      <ResDataDisplay></ResDataDisplay>
     </div>
   );
 }
