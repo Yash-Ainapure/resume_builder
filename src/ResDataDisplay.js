@@ -1,9 +1,11 @@
 import './resDataDisplay.css';
-function ResDataDisplay({name,education,skills,experience}){
-   let counter=0;
-   function handleClick(){
-      counter++;  
-      alert("button clicked "+counter+" times");
+function ResDataDisplay({keyy,name,education,skills,experience,deleteResumeMedium}){
+   function handleDelete(){
+      console.log("call from handleDelete");
+      deleteResumeMedium(name);
+   }
+   function handleEdit(){      
+
    }
    function handlePrint(){
       window.print();
@@ -19,8 +21,8 @@ function ResDataDisplay({name,education,skills,experience}){
          <div className="inner">skills:{skills}</div>
          <div className="inner">experience:{experience}</div>
          <div className="inner-footer">
-         <button className="button" onClick={handleClick}>Delete</button>
-         <button className="button" onClick={handleClick}>Edit</button>
+         <button className="button" onClick={handleDelete}>Delete</button>
+         <button className="button" onClick={handleEdit}>Edit</button>
          <button className="button" onClick={handleNewResume}>New Resume</button>
          <button className="button" onClick={handlePrint}>Print</button>
          </div>
